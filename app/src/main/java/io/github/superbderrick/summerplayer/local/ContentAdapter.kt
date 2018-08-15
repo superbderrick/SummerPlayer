@@ -10,12 +10,12 @@ import kotlinx.android.synthetic.main.recyclerview_item_row.view.*
 
 
 class ContentAdapter(val items : ArrayList<String>, val context: Context) : RecyclerView.Adapter<ViewHolder>() {
-    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.recyclerview_item_row, p0, false))
+    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): ViewHolder {
+        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.recyclerview_item_row, parent, false))
     }
 
-    override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        p0?.tvAnimalType?.text = items.get(p1)
+    override fun onBindViewHolder(p0: ViewHolder, position: Int) {
+        p0?.tvAnimalType?.text = items.get(position)
     }
 
     // Gets the number of contents in the list
@@ -26,6 +26,8 @@ class ContentAdapter(val items : ArrayList<String>, val context: Context) : Recy
 }
 
 class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
-    // Holds the TextView that will add each animal to
-    val tvAnimalType = view.tv_animal_type
+
+    val tvAnimalType = view.content_title
+
+
 }

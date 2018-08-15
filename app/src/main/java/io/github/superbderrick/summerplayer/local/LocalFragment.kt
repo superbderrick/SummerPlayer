@@ -27,7 +27,6 @@ class LocalFragment : Fragment() {
         contentsRecycleView.adapter = ContentAdapter(contents , this.context!!)
 
         return view
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,10 +34,8 @@ class LocalFragment : Fragment() {
         addContents()
     }
 
-
     override fun onDestroy() {
         super.onDestroy()
-
         contents.clear()
     }
 
