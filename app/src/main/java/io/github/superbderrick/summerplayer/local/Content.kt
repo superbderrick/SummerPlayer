@@ -1,29 +1,17 @@
 package io.github.superbderrick.summerplayer.local
 
-data class Content(
-        val title: String = "",
-        val streamingType: String = "",
-        val fileType: String,
-        val withDRM: String = ""
-        ) {
+class Content(contentTitle: String , streamingType : Int , fileType : Int , withDRM : Boolean) {
 
-    class Builder {
-        private var title: String = ""
-        private var streamingType: String = ""
-        private var fileType: String = ""
-        private var withDRM: String = ""
+    var title:String
+    var streamingType:Int
+    var fileType:Int
+    var withDRM:Boolean
 
-        fun addressLine1(addressLine1: String) = apply { this.title = addressLine1 }
-        fun streamingType(streamingType: String) = apply { this.streamingType = streamingType }
-        fun city(city: String) = apply { this.fileType = city }
-        fun withDRM(withDRM: String) = apply { this.withDRM = withDRM }
-
-
-        fun build() = Content(
-                title,
-                streamingType,
-                fileType,
-                withDRM
-        )
+    init {
+        title = contentTitle
+        this.streamingType = streamingType
+        this.fileType = fileType
+        this.withDRM = withDRM
     }
+
 }
