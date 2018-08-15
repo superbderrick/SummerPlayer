@@ -3,6 +3,7 @@ package io.github.superbderrick.summerplayer.ui
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import io.github.superbderrick.summerplayer.local.LocalFragment
 
 class MainPageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
