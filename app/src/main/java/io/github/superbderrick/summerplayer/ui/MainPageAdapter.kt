@@ -8,9 +8,7 @@ class MainPageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> {
-                LocalFragment()
-            }
+            0 -> LocalFragment()
             1 -> StreamingFragment()
             2 -> RecentlyFragment()
             else -> {
@@ -25,7 +23,7 @@ class MainPageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getPageTitle(position: Int): CharSequence {
         return when (position) {
-            0 -> "Local File"
+            0 -> "Local"
             1 -> "Streaming"
             2 -> "Recently"
             else -> {
@@ -33,4 +31,5 @@ class MainPageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
             }
         }
     }
+
 }

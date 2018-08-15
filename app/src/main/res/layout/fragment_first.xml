@@ -4,9 +4,17 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/title_textview"
+        android:layout_marginTop="10dip"
+        android:textStyle="bold"
+        android:textColor="@color/colorGreen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="First tab"
-        android:textSize="40sp"/>
+        android:text="@string/basic_playback"
+        android:textSize="15sp"/>
+
+    
+
+
 
 </FrameLayout>

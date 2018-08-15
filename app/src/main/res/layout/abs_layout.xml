@@ -5,11 +5,12 @@
     android:orientation="vertical" >
 
     <TextView
+        android:background="@color/colorTransparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="SummerPlayer"
-        android:textColor="#ffffff"
+        android:textColor="@color/colorAccent"
         android:textStyle="bold"
         android:textSize="18sp" />
 
