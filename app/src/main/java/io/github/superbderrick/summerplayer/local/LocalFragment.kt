@@ -3,13 +3,11 @@ package io.github.superbderrick.summerplayer.local
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import io.github.superbderrick.summerplayer.R
-import kotlinx.android.synthetic.main.fragment_local.*
 
 
 /**
@@ -17,8 +15,7 @@ import kotlinx.android.synthetic.main.fragment_local.*
  */
 class LocalFragment : Fragment() {
 
-
-    val animals: ArrayList<String> = ArrayList()
+    val contents: ArrayList<String> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -27,7 +24,7 @@ class LocalFragment : Fragment() {
         val contentsRecycleView = view.findViewById<RecyclerView>(R.id.content_recyclerView) as RecyclerView
 
         contentsRecycleView.layoutManager = GridLayoutManager(this.context , 2)
-        contentsRecycleView.adapter = AnimalAdapter(animals , this.context!!)
+        contentsRecycleView.adapter = ContentAdapter(contents , this.context!!)
 
         return view
 
@@ -35,29 +32,21 @@ class LocalFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        addAnimals()
-
+        addContents()
     }
 
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-
-    }
 
     override fun onDestroy() {
         super.onDestroy()
 
-        animals.clear()
+        contents.clear()
     }
 
-    fun addAnimals() {
-        animals.add("dog")
-        animals.add("cat")
-        animals.add("owl")
-        animals.add("cheetah")
+    fun addContents() {
+        contents.add("dog")
+        contents.add("cat")
+        contents.add("owl")
+        contents.add("cheetah")
     }
 
 }

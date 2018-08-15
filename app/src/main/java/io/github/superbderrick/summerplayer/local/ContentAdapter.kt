@@ -9,7 +9,7 @@ import io.github.superbderrick.summerplayer.R
 import kotlinx.android.synthetic.main.recyclerview_item_row.view.*
 
 
-class AnimalAdapter(val items : ArrayList<String>, val context: Context) : RecyclerView.Adapter<ViewHolder>() {
+class ContentAdapter(val items : ArrayList<String>, val context: Context) : RecyclerView.Adapter<ViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.recyclerview_item_row, p0, false))
     }
@@ -18,7 +18,7 @@ class AnimalAdapter(val items : ArrayList<String>, val context: Context) : Recyc
         p0?.tvAnimalType?.text = items.get(p1)
     }
 
-    // Gets the number of animals in the list
+    // Gets the number of contents in the list
     override fun getItemCount(): Int {
         return items.size
     }
