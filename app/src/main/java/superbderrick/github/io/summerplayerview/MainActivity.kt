@@ -10,6 +10,7 @@ import com.google.android.exoplayer2.source.ExtractorMediaSource
 import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
+import com.google.android.exoplayer2.util.MimeTypes
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() ,Player.EventListener  {
@@ -41,18 +42,18 @@ class MainActivity : AppCompatActivity() ,Player.EventListener  {
 
     private fun setupExoPlayer() {
 
-        simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(this, DefaultRenderersFactory(this),
-            DefaultTrackSelector(), DefaultLoadControl()
-        )
+        var trackSelector = DefaultTrackSelector(this)
+        trackSelector.setParameters(trackSelector.buildUponParameters().setMaxVideoSizeSd())
+        simpleExoPlayer = SimpleExoPlayer.Builder(this).setTrackSelector(trackSelector).build()
 
         playerView.setPlayer(simpleExoPlayer)
 
-        simpleExoPlayer.setPlayWhenReady(true)
-        simpleExoPlayer.seekTo(0, 0)
-
-        val uri = Uri.parse(BASIC_URL)
-        val mediaSource = buildMediaSource(uri)
-        simpleExoPlayer.prepare(mediaSource, true, false)
+        var mediaItem = MediaItem.Builder().setUri(BASIC_URL).setMimeType(MimeTypes.APPLICATION_MP4)
+            .build()
+        simpleExoPlayer.setMediaItem(mediaItem)
+        simpleExoPlayer.setPlayWhenReady(true);
+        simpleExoPlayer.seekTo(0, 0);
+        simpleExoPlayer.prepare();
 
     }
 
